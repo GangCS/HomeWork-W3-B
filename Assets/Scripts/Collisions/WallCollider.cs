@@ -8,43 +8,26 @@ public class WallCollider : MonoBehaviour
     [Tooltip("Every object tagged with this tag will trigger the destruction of this object")]
     [SerializeField] string triggeringTag;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag.CompareTo("LeftWall")==0)
-        {
-            this.transform.position = this.transform.position + new Vector3(pushBack, 0, 0);
-        }
-        else if(collision.tag.CompareTo("RightWall")==0)
-        {
-            this.transform.position = this.transform.position - new Vector3(pushBack, 0, 0);
-        }
-        else if(collision.tag.CompareTo("UpperWall")==0)
-        {
-            this.transform.position = this.transform.position - new Vector3(0, pushBack, 0);
-        }
-        else if (collision.tag.CompareTo("BottomWall") == 0)
-        {
-            this.transform.position = this.transform.position + new Vector3(0, pushBack, 0);
-        }
-        
-    }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag.CompareTo("LeftWall") == 0)
+        if (collision.tag == "Ship")
         {
-            this.transform.position = this.transform.position + new Vector3(pushBack, 0, 0);
-        }
-        else if (collision.tag.CompareTo("RightWall") == 0)
-        {
-            this.transform.position = this.transform.position - new Vector3(pushBack, 0, 0);
-        }
-        else if (collision.tag.CompareTo("UpperWall") == 0)
-        {
-            this.transform.position = this.transform.position - new Vector3(0, pushBack, 0);
-        }
-        else if (collision.tag.CompareTo("BottomWall") == 0)
-        {
-            this.transform.position = this.transform.position + new Vector3(0, pushBack, 0);
+            if (this.tag.CompareTo("LeftWall") == 0)
+            {
+                collision.transform.position = collision.transform.position + new Vector3(pushBack, 0, 0);
+            }
+            else if (this.tag.CompareTo("RightWall") == 0)
+            {
+                collision.transform.position = collision.transform.position - new Vector3(pushBack, 0, 0);
+            }
+            else if (this.tag.CompareTo("UpperWall") == 0)
+            {
+                collision.transform.position = collision.transform.position - new Vector3(0, pushBack, 0);
+            }
+            else if (this.tag.CompareTo("BottomWall") == 0)
+            {
+                collision.transform.position = collision.transform.position + new Vector3(0, pushBack, 0);
+            }
         }
     }
 }
