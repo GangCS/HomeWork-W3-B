@@ -15,27 +15,21 @@ public class KeyboardMover: MonoBehaviour {
         float vertical = Input.GetAxis("Vertical");     // +1 if up arrow is pushed, -1 if down arrow is pushed, 0 otherwise
         if (vertical == 1)
         {
-            transform.eulerAngles = new Vector3(0, 0, 90);
+            transform.eulerAngles = new Vector3(0, 0, 90); // rotate the ship 
         }
         if (vertical == -1)
         {
-            transform.eulerAngles = new Vector3(0, 0, -90);
+            transform.eulerAngles = new Vector3(0, 0, -90); // rotate the ship 
         }
         if (horizontal == 1)
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            transform.eulerAngles = new Vector3(0, 0, 0);// rotate the ship 
         }
         if (horizontal == -1)
         {
-            transform.eulerAngles = new Vector3(0, 0, 180);
+            transform.eulerAngles = new Vector3(0, 0, 180);// rotate the ship 
         }
         Vector3 movementVector = new Vector3(horizontal, vertical, 0) * speed * Time.deltaTime;
         transform.position += movementVector;
-        //transform.Translate(movementVector);
-        // NOTE: "Translate(movementVector)" uses relative coordinates - 
-        //       it moves the object in the coordinate system of the object itself.
-        // In contrast, "transform.position += movementVector" would use absolute coordinates -
-        //       it moves the object in the coordinate system of the world.
-        // It makes a difference only if the object is rotated.
     }
 }

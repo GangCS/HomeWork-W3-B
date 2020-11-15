@@ -10,7 +10,7 @@ public class MoveToB1 : MonoBehaviour
     {
         if (collision.tag == "Ship")
         {
-            SceneManager.LoadScene("B-1");
+            SceneManager.LoadScene("B-1"); // Move to scence B-1
         }
     }
 }

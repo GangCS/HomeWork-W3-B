@@ -6,16 +6,12 @@ public class DestroyOnExitMap : MonoBehaviour
 {
     // Start is called before the first frame update
     [Tooltip("Every object tagged with this tag will trigger the destruction of this object")]
-    [SerializeField] string EnemyTag;
-    [SerializeField] string MissileTag;
+    [SerializeField] string EnemyTag; // Enemy tags of objects to be destroyed 
+    [SerializeField] string MissileTag; // missile tags of objects to be destroyed
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == EnemyTag && enabled)
-        {
-            Destroy(other.gameObject);
-        }
-        if (other.tag == MissileTag && enabled)
+        if ((other.tag == EnemyTag || other.tag == MissileTag) && enabled) // check if the tag of the colliding object is enemy or missile
         {
             Destroy(other.gameObject);
         }

@@ -10,10 +10,10 @@ public class Mover: MonoBehaviour {
     [SerializeField] Vector3 velocity;
 
     void Update() {
-        transform.position += velocity * Time.deltaTime;
+        transform.position += velocity * Time.deltaTime; // move the object by a certain vector 
     }
 
-    public void SetVelocity(Vector3 newVelocity) {
+    public void SetVelocity(Vector3 newVelocity) { 
         this.velocity = newVelocity;
     }
 }

@@ -15,8 +15,8 @@ public class TimedSpawnerRandom: MonoBehaviour {
 
     private IEnumerator SpawnRoutine() {
         while (true) {
-            float timeBetweenSpawns = Random.Range(minTimeBetweenSpawns, maxTimeBetweenSpawns);
-            yield return new WaitForSeconds(timeBetweenSpawns);
+            float timeBetweenSpawns = Random.Range(minTimeBetweenSpawns, maxTimeBetweenSpawns); // get random times for spawn
+            yield return new WaitForSeconds(timeBetweenSpawns); 
             Vector3 positionOfSpawnedObject = new Vector3(
                 transform.position.x + Random.Range(-maxXDistance, +maxXDistance),
                 transform.position.y,
